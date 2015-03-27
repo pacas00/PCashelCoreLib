@@ -10,7 +10,12 @@ import java.util.concurrent.TimeUnit;
 public class threadManager {
 	private int processors = Runtime.getRuntime().availableProcessors();
 	public ExecutorService exec = Executors.newFixedThreadPool(processors);
+	public static threadManager threadMan;
 	
+	public static threadManager getInstance() {
+		if (threadMan == null) threadMan = new threadManager();
+		return threadMan;
+	}
 	public threadManager() {
 		
 	}
